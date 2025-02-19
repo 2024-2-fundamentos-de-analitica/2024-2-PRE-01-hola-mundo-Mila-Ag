@@ -5,10 +5,9 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
-
 import csv
 
-def pregunta_02():
+def pregunta_03():
     route = "files/input/data.csv"
     # Diccionario que almacena los registros
     dic = {}
@@ -18,22 +17,24 @@ def pregunta_02():
             # Añade los valores de la columna 2 y los convierte en enteros
             # Si existe
             if fila[0] in dic:
-                dic[fila[0]] += 1
+                dic[fila[0]] += int(fila[1])
             # Si no existe
             else:
-                dic[fila[0]] = 1
+                dic[fila[0]] = int(fila[1])
 
     # Se obtienen los objetos del dic, y se ordenan en base a su letra
     lista = list(dic.items())
     lista.sort()
-
-    return lista
     
+    return lista
+
+
+
 """
-Retorne la cantidad de registros por cada letra de la primera columna como
-la lista de tuplas (letra, cantidad), ordendas alfabéticamente.
+Retorne la suma de la columna 2 por cada letra de la primera columna como
+una lista de tuplas (letra, suma) ordendas alfabeticamente.
 
 Rta/
-[('A', 8), ('B', 7), ('C', 5), ('D', 6), ('E', 14)]
+[('A', 53), ('B', 36), ('C', 27), ('D', 31), ('E', 67)]
 
 """
